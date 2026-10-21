@@ -18,6 +18,17 @@ npm run preview
 
 O build estático é gerado em `dist/`. As fontes e ilustrações são locais; não é necessário configurar chaves ou serviços externos.
 
+## Publicação no Cloudflare Workers
+
+O arquivo `wrangler.jsonc` define o nome do projeto, a data de compatibilidade e a pasta de arquivos estáticos. No painel da Cloudflare, use:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy --name protolab --assets ./dist`
+- **Preview command:** `npx wrangler versions upload --name protolab --assets ./dist`
+- **Path:** `/`
+
+A data de compatibilidade fixa o comportamento do runtime da Cloudflare e não precisa acompanhar a data de cada publicação. A autenticação é fornecida pela integração do GitHub com o Cloudflare Workers Builds.
+
 ## Interface
 
 - Tema inicial acompanha o sistema; o seletor permite Claro, Escuro e Sistema. A preferência é salva no navegador quando o armazenamento está disponível.
